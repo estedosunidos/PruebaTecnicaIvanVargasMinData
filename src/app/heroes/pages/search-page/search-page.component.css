@@ -1,0 +1,8 @@
+.custom-form-field {
+  width: 80%; /* Ajusta el ancho del mat-form-field */
+  margin: 20px 90px 0; /* Agrega un margen superior de 20px y centra horizontalmente */
+}
+
+.custom-input {
+  padding-top: 10px; /* Agrega un relleno superior al campo de entrada */
+}

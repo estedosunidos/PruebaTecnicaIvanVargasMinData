@@ -1,0 +1,18 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+.mat-dialog-title {
+  font-size: 24px; /* Title font size */
+  font-weight: bold; /* Title font weight */
+}
+
+.mat-dialog-content {
+  font-size: 56px; /* Content font size */
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+.mat-dialog-actions button {
+  margin-left: 8px; /* Add space between buttons */
+}

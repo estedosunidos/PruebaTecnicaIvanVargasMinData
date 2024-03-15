@@ -1,0 +1,28 @@
+/* Estilos para el componente de autocompletado */
+.mat-autocomplete-panel {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Altura máxima del panel de autocompletado */
+  overflow-y: auto; /* Hacer scroll si hay demasiados elementos */
+}
+
+.mat-option {
+  padding: 10px 16px; /* Ajustar el espacio interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre las opciones */
+}
+
+.mat-option:hover {
+  background-color: #f0f0f0; /* Cambiar el color de fondo al pasar sobre las opciones */
+}
+
+/* Estilos para el borde del input cuando está enfocado */
+.mat-focused .mat-form-field-underline {
+  background-color: #1976d2; /* Cambiar el color del borde cuando el input está enfocado */
+}
+
+/* Ajustar el ancho del panel de autocompletado para que ocupe todo el ancho */
+.mat-autocomplete-panel {
+  width: 100% !important;
+  max-width: none !important;
+}

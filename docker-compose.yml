@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: ./
+    ports:
+      - '4200:80'  # Puertos del contenedor (host:contenedor)
+    depends_on:
+      - backend  # Espera a que el servicio backend esté disponible antes de iniciar
+
+  backend:
+    image: pruebas/json-server
+    volumes:
+      - ./backend:/data  # Monta el directorio backend en /data dentro del contenedor
+    ports:
+      - '3000:3000'  # Puertos del contenedor (host:contenedor)

@@ -1,0 +1,33 @@
+<mat-card class="w-full max-w-md mx-auto md:flex shadow-md">
+  <div class="md:flex-grow">
+    <mat-card-header>
+      <mat-card-title class="text-xl font-semibold">{{ hero.superhero }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="hero | hroImage" [alt]="hero.superhero" class="w-full">
+    <mat-card-content class="mt-2">
+      <p class="text-gray-700">
+        <strong>Publisher:</strong> {{ hero.publisher }}
+      </p>
+      <p class="text-gray-700">
+        <strong>First Appearance:</strong> {{ hero.first_appearance }}
+      </p>
+      <mat-chip-listbox>
+        <mat-chip *ngFor="let character of hero.characters.split(',') | slice:0:3" class="mr-2 mb-2">
+          {{ character }}
+        </mat-chip>
+      </mat-chip-listbox>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions class="flex justify-end">
+      <button mat-button mat-raised color="primary" [routerLink]="['/Heroes/edit-heros', hero.id]">
+        <mat-icon class="mr-2">edit</mat-icon>
+        Editar
+      </button>
+      <button mat-button mat-raised color="warn" (click)="onDelete()">
+        <mat-icon class="mr-2">delete</mat-icon>
+        Delete
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>
+

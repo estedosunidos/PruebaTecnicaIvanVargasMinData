@@ -1,0 +1,15 @@
+<<!-- Añade un campo de búsqueda -->
+<mat-form-field class="w-full mb-4">
+  <input matInput placeholder="Buscar héroe..." (input)="onSearchChange($event)">
+</mat-form-field>
+
+<!-- Contenedor principal -->
+<div class="container mx-auto px-2">
+  <!-- Lista de héroes -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+    <!-- Filtra y muestra los héroes que coinciden con el término de búsqueda -->
+    <div *ngFor="let hero of filteredHeroes" class="flex justify-center">
+      <heros-hero-card [hero]="hero"></heros-hero-card>
+    </div>
+  </div>
+</div>
