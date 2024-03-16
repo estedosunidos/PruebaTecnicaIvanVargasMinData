@@ -1,26 +1,27 @@
 # Use the official Node.js image as a base
-FROM node:latest AS builder
+FROM node:18-alpine3.11 as Angular
 
 # Set the working directory in the container
 WORKDIR /app
 
 # Copy the package.json and package-lock.json (if available)
-COPY PruebaTecnicaIvanVargasMinData/package*.json ./
+COPY package.json package-lock.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the entire application
-COPY PruebaTecnicaIvanVargasMinData .
+
+# Copy the rest of the application code
+COPY . .
 
 # Build the Angular application in production mode
-RUN npm run build
+RUN ng build --prod
 
 # Use nginx as the final base image
-FROM nginx:latest
+FROM nginx:alpine
 
 # Copy the built Angular app to the nginx public directory
-COPY --from=builder /app/dist/PruebaTecnicaIvanVargasMinData /usr/share/nginx/html
+COPY --from=Angular /app/dist/projects /usr/share/nginx/html
 
 # Expose port 80 to the outside world
 EXPOSE 80

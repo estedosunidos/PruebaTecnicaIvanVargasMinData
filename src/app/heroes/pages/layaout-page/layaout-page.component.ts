@@ -1,7 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Hero } from "../../interfaces/herosInterface";
-import { HerosserviceService } from "../../services/herosservice.service";
-import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-layaout-page',
