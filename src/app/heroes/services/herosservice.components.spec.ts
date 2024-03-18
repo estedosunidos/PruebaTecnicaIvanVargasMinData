@@ -5,41 +5,47 @@ import { Hero } from '../interfaces/herosInterface';
 
 
 describe('HeroesService', () => {
-  let service: HerosserviceService;
-  let httpMock: HttpTestingController;
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [HerosserviceService]
-    });
-    service = TestBed.inject(HerosserviceService);
-    httpMock = TestBed.inject(HttpTestingController);
-  });
+  describe('HerosserviceService', () => {
+    let service: HerosserviceService;
+    let httpMock: HttpTestingController;
 
-  afterEach(() => {
-    httpMock.verify(); // Verifica que no haya solicitudes pendientes
-  });
+    beforeEach(() => {
+      TestBed.configureTestingModule({
+        imports: [HttpClientTestingModule],
+        providers: [HerosserviceService]
+      });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-
-  it('should return heroes from API', () => {
-    const mockHeroes: Hero[] = [
-      { id: '1', superhero: 'Superman', publisher: 'DC Comics', alter_ego: 'Clark Kent', first_appearance: 'Action Comics #1', characters: 'Clark Kent' },
-      { id: '2', superhero: 'Batman', publisher: 'DC Comics', alter_ego: 'Bruce Wayne', first_appearance: 'Detective Comics #27', characters: 'Bruce Wayne' }
-    ];
-
-    const page = 1;
-    const pageSize = 10;
-
-    service.getHeroes(page, pageSize).subscribe((heroes: Hero[]) => {
-      expect(heroes.length).toBe(2);
-      expect(heroes).toEqual(mockHeroes);
+      service = TestBed.inject(HerosserviceService);
+      httpMock = TestBed.inject(HttpTestingController);
     });
 
-    const req = httpMock.expectOne(`${service.baseurl}?page=${page}&pageSize=${pageSize}`);
-    expect(req.request.method).toBe('GET');
-    req.flush(mockHeroes); // Simula una respuesta del servidor con los héroes de prueba
+    afterEach(() => {
+      httpMock.verify();
+    });
+
+    it('should be created', () => {
+      expect(service).toBeTruthy();
+    });
+
+    it('should retrieve heroes by pagination from API', () => {
+      const page = 1;
+      const pageSize = 10;
+      const mockHeroes: Hero[] = [
+        { id: '1', superhero: 'Superman', publisher: 'DC Comics', alter_ego: 'Clark Kent', first_appearance: 'Action Comics #1', characters: 'Kal-El', alt_img: '' }
+      ];
+
+      service.getHeroesbyPagination(page, pageSize).subscribe(heroes => {
+        expect(heroes).toEqual(mockHeroes);
+      });
+
+      const req = httpMock.expectOne(`http://localhost:3000/heroes?page=${page}&pageSize=${pageSize}`);
+      expect(req.request.method).toBe('GET');
+
+      req.flush(mockHeroes);
+    });
+
+
+
+
   });
 });

@@ -47,7 +47,7 @@ export class NewPageComponent implements OnInit {
       switchMap(({ id }) => this.HerosserviceService.getHeroById(id)) // Obtiene el héroe por ID
     ).subscribe(hero => {
       if (!hero) {
-        return this.router.navigateByUrl('/'); // Si no se encuentra el héroe, redirige a la página principal
+        return this.router.navigate(['/Heroes/List-heros']); // Redirige a la lista de héroes
       }
       this.heroForm.reset(hero); // Restablece el formulario con los datos del héroe obtenido
       return;

@@ -1,6 +1,6 @@
 <h1>
  {{ CurrentHero.id ? 'Editar':'Agregar'}}
-  Heroe
+ Héroe
   <small *ngIf="CurrentHero.id">{{CurrentHero.superhero}}</small>
 </h1>
 <mat-divider></mat-divider>
@@ -10,7 +10,7 @@
         <mat-card-content>
           <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit(heroForm)">
             <mat-form-field class="col-12 sm:col-6">
-              <mat-label>Super Heroes</mat-label>
+              <mat-label>Super Héroe</mat-label>
               <input
               matInput
               type="text"
