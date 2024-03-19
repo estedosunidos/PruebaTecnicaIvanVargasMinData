@@ -7,7 +7,7 @@ Este proyecto fue generado con [Node.js](https://github.com/angular/node) versi√
 1-Git clone https://github.com/estedosunidos/PruebaTecnicaIvanVargasMinData.git
 2-npm install 
 3-cd PruebaTecnicaIvanVargasMinData
-4- ngpm run backend
+4- npm run backend
 5-ng s
 6- Abri aplicacio n
 ## Servidor de Desarrollo
