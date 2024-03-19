@@ -10,7 +10,6 @@ import { HeroesRoutingModule } from './heroes.routing.module';
 import { SharedModuleModule } from '../shared/shared-module.module';
 import { CardComponent } from './components/card/card.component';
 import { HroImagePipe } from './pipes/HroImgePipe.pipe';
-import { PrimeNGModule } from '../PrimeNG/PrimeNG/PrimeNG.module';
 import { ConfirmDialogComponent } from './components/confirmDialog/confirmDialog.component';
 
 
@@ -30,7 +29,6 @@ import { ConfirmDialogComponent } from './components/confirmDialog/confirmDialog
     ReactiveFormsModule,
     MaterialModuleModule,
     FormsModule,
-    PrimeNGModule,
     HeroesRoutingModule,
     SharedModuleModule
   ]
