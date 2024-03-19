@@ -20,7 +20,6 @@ export class CardComponent implements OnInit {
    public heros: Hero[]=[]
 
   ngOnInit() {
-    this.loadHeroes(); //
     this.LoadingServiceService.isLoading$.subscribe(isLoading => {
       this.isLoading = isLoading;
     });
@@ -32,36 +31,39 @@ export class CardComponent implements OnInit {
       data: '¿Estás seguro de que deseas eliminar este héroe?'
     });
 
-    dialogRef.afterClosed().pipe(
-      switchMap(result => {
+    dialogRef.afterClosed().subscribe(
+      result => {
         if (result) {
-          return this.HerosserviceService.deleteHeroById(this.hero.id).pipe(
-            catchError(error => {
+          this.HerosserviceService.deleteHeroById(this.hero.id).subscribe(
+            () => {
+              console.log('Hero deleted successfully');
+              // Luego de eliminar el héroe, volvemos a cargar la lista de héroes
+              this.HerosserviceService.getHeroes().subscribe(
+                heroes => {
+                  console.log('d', heroes);
+                  // Actualizamos la lista de héroes en el componente
+                  this.heros = heroes;
+                   // Recargar la página actual
+                  window.location.reload();
+                },
+                error => {
+                  console.error('Error al cargar los héroes:', error);
+                  // Maneja el error según tus necesidades
+                }
+              );
+            },
+            error => {
               console.error('Error al eliminar el héroe:', error);
-              // Manejar el error de eliminación según tus necesidades
-              return of(false); // Emitir false en caso de error
-            })
+              // Maneja el error según tus necesidades
+            }
           );
         } else {
-          return of(false); // Emitir false si el usuario cancela la eliminación
+          console.log('Cancelled deletion');
         }
-      }),
-      concatMap(wasDeleted => {
-        if (wasDeleted) {
-          console.log('Hero deleted successfully');
-          return this.loadHeroes(); // Actualizar la lista después de eliminar el héroe
-        } else {
-          console.log('Failed to delete hero');
-          return of(null); // Emitir null si la eliminación falla o es cancelada
-        }
-      })
-    ).subscribe(
-      () => {
-        // Redirigir opcionalmente después de eliminar
-        // this.router.navigate(['/Heroes/List-heros']);
       }
     );
   }
+
 
   // Método para cargar héroes
   loadHeroes(): Observable<any> {

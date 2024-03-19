@@ -6,42 +6,5 @@
       "email": "john.due@gmail.com"
     }
   ],
-  "heroes": [
-    {
-      "id": "marvel-comic-iron-man",
-      "superhero": "Iron Man1",
-      "publisher": "Marvel-comic",
-      "alter_ego": "Iron Man",
-      "first_appearance": "1989",
-      "characters": "Tony Stack",
-      "alt_img": "https://th.bing.com/th?id=OSK.mmcolbl0PcxwEFyTx9WO1Wj2IsMQwymnsfMMDm6p-g9MhuXs&w=76&h=100&c=8&o=6&dpr=1.5&pid=SANGAM"
-    },
-    {
-      "id": "dc-batman",
-      "superhero": "Batman12",
-      "publisher": "dc",
-      "alter_ego": "batman",
-      "first_appearance": "1986",
-      "characters": "batman",
-      "alt_img": "https://th.bing.com/th/id/OIP.yq2zS7BkNKad6Ujaa_NrzgHaLo?w=115&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-    },
-    {
-      "id": "dc-comic-superman",
-      "superhero": "superman1",
-      "publisher": "dc comic",
-      "alter_ego": "Superman",
-      "first_appearance": "1985",
-      "characters": "Superman",
-      "alt_img": "https://th.bing.com/th/id/OIP.yq2zS7BkNKad6Ujaa_NrzgHaLo?w=115&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-    },
-    {
-      "id": "marvel-capitan-america",
-      "superhero": "Capitan America1",
-      "publisher": "marvel",
-      "alter_ego": "Capitan America",
-      "first_appearance": "1977",
-      "characters": "Capitan America",
-      "alt_img": "https://th.bing.com/th/id/OIP.CZ7Cq-B6nItIBcODQbzi4QHaKe?w=194&h=274&c=7&r=0&o=5&dpr=1.5&pid=1.7"
-    }
-  ]
+  "heroes": []
 }
