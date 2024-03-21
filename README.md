@@ -2,6 +2,7 @@
 
 Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 16.2.12.
 Este proyecto fue generado con [Node.js](https://github.com/angular/node) versión  18.14.0
+Este proyecto fue generado con [npm](https://github.com/angular/node) versión 9.3.1  
 
 # Instalacion del proyecto
 1-Git clone https://github.com/estedosunidos/PruebaTecnicaIvanVargasMinData.git
